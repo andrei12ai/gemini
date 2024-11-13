@@ -1,6 +1,7 @@
 import streamlit as st
 import json
 from google.cloud import aiplatform
+from google_cloud.aiplatform import v1beta1 as aiplatform
 
 def initialize_llm_client():
     # Replace 'YOUR_PROJECT_ID' with your actual project ID
