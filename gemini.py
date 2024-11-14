@@ -35,7 +35,7 @@ if uploaded_file is not None:
         f"You will be given this JSON data {json_string} representing a detailed configuration of a workflow system. "
         "The system is composed of steps that interact with other steps through defined inputs, outputs, and conditions. "
         "Your job is to analyze such workflows based on user prompts and provide specific information and visualization, "
-        "modify workflows according to user instructions and/or generate new workflows following the structure presented in the JSON file."
+        "modify workflows according to user instructions and/or generate new workflows following the structure presented in the JSON data."
     )
     
     model = genai.GenerativeModel(
