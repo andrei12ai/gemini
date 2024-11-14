@@ -35,7 +35,7 @@ chat_session = model.start_chat(
     },
   ]
 )
-prompt = st.chat_input("")
-response = chat_session.send_message(prompt)
+#prompt = st.chat_input("")
+response = chat_session.send_message("jet")
 
 st.write(response.text)
