@@ -15,7 +15,7 @@ uploaded_file = st.file_uploader("Choose a DSL JSON file", type="json")
 if uploaded_file is not None:
     # Read and parse the uploaded JSON file
     json_file = json.load(uploaded_file)
-    json_dumps = json.dumps(json_file)
+    json_string = json.dumps(json_file)
 
 
     genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
@@ -29,11 +29,19 @@ if uploaded_file is not None:
       "max_output_tokens": 8192,
       "response_mime_type": "text/plain",
     }
+
+    system_instruction = (
+        "You are an assistant for industrial workflow processing. "
+        f"You will be given this JSON data {json_string} representing a detailed configuration of a workflow system. "
+        "The system is composed of steps that interact with other steps through defined inputs, outputs, and conditions. "
+        "Your job is to analyze such workflows based on user prompts and provide specific information and visualization, "
+        "modify workflows according to user instructions and/or generate new workflows following the structure presented in the JSON file."
+    )
     
     model = genai.GenerativeModel(
       model_name="gemini-1.5-flash",
       generation_config=generation_config,
-      system_instruction="You are an assistant for industrial workflow processing. You will be given this JSON file {json_dumps} representing a detailed configuration of a workflow system. The system is composed of steps that interact with other steps through defined inputs, outputs, and conditions. Your job is to analyze such workflows based on user prompts and provide specific information and visualization, modify workflows according to user instructions and/or generate new workflows following the structure presented in the JSON file. ",
+      system_instruction=system_instruction,
     )
     
     
