@@ -22,7 +22,7 @@ model = genai.GenerativeModel(
   system_instruction="You are an assistant for industrial workflow processing. You will be given a JSON file representing a detailed configuration of a workflow system. The system is composed of steps that interact with other steps through defined inputs, outputs, and conditions. Your job is to analyze such workflows based on user prompts and provide specific information and visualization, modify workflows according to user instructions and/or generate new workflows following the structure presented in the JSON file. ",
 )
 
-"""
+'''
 chat = model.start_chat(
   history=[
     {
@@ -39,7 +39,7 @@ chat = model.start_chat(
     },
   ]
 )
-"""
+'''
 
 with st.sidebar:
     if st.button("Clear Chat Window", use_container_width=True, type="primary"):
@@ -76,7 +76,7 @@ if user_prompt:
         st.markdown(gemini_response.text)
 
 
-"""
+'''
 if "app_key" in st.session_state:
     if prompt := st.chat_input(""):
         prompt = prompt.replace('\n', ' \n')
@@ -104,4 +104,4 @@ if "app_key" in st.session_state:
             except Exception as e:
                 st.exception(e)
             st.session_state.history = chat.history
-"""
+'''
