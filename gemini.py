@@ -1,9 +1,12 @@
 import streamlit as st
 import google.generativeai as genai
+import time
+import random
 
 st.title("Workflow Analyzer")
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
-
+app_key = st.secrets["GOOGLE_API_KEY"]
+st.session_state.app_key = app_key
 # Create the model
 generation_config = {
   "temperature": 1,
