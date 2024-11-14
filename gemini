@@ -1,6 +1,7 @@
 import streamlit as st
 import google.generativeai as genai
 
+st.title("Workflow Analyzer")
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 # Create the model
