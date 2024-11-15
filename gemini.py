@@ -67,13 +67,13 @@ if uploaded_file is not None:
             st.markdown(message.parts[0].text)
     
     # Input field for user's message
-    user_prompt = st.chat_input("Ask Gemini-Pro...")
+    user_prompt = st.chat_input("Ask me something about this workflow...")
     if user_prompt:
         # Add user's message to chat and display it
         st.chat_message("user").markdown(user_prompt)
     
         # Send user's message to Gemini-Pro and get the response
-        gemini_response = st.session_state.chat_session.send_message(user_prompt)
+        gemini_response = st.session_state.chat_session.send_message(user_prompt, stream=True)
     
         # Display Gemini-Pro's response
         with st.chat_message("assistant"):
