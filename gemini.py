@@ -77,7 +77,7 @@ if uploaded_file is not None:
     
         # Display Gemini-Pro's response
         with st.chat_message("assistant"):
-            st.markdown("Thinking...")
+            #st.markdown("Thinking...")
             st.markdown(gemini_response.text)
     
     
