@@ -73,7 +73,7 @@ if uploaded_file is not None:
         st.chat_message("user").markdown(user_prompt)
     
         # Send user's message to Gemini-Pro and get the response
-        gemini_response = st.session_state.chat_session.send_message(user_prompt, stream=True)
+        gemini_response = st.session_state.chat_session.send_message(user_prompt)
     
         # Display Gemini-Pro's response
         with st.chat_message("assistant"):
