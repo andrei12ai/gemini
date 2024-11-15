@@ -45,10 +45,10 @@ if uploaded_file is not None:
     )
     
     
-    with st.sidebar:
-        if st.button("Clear Chat Window", use_container_width=True, type="primary"):
-            st.session_state.history = []
-            st.rerun()
+    #with st.sidebar:
+        #if st.button("Clear Chat Window", use_container_width=True, type="primary"):
+            #st.session_state.history = []
+            #st.rerun()
           
     # Function to translate roles between Gemini and Streamlit terminology
     def translate_role_for_streamlit(user_role):
