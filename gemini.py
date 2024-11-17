@@ -39,7 +39,7 @@ if uploaded_file is not None:
     )
     
     model = genai.GenerativeModel(
-      model_name="gemini-1.5-flash",
+      model_name="gemini-1.5-pro-002",
       generation_config=generation_config,
       system_instruction=system_instruction,
     )
